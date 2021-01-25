@@ -1,0 +1,33 @@
+[package]
+name = "syncplay"
+version = "0.1.0"
+authors = ["Samuel Batissou <samuelbatissou@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+vlc-rs = "0.3.0"
+tokio = { version = "1.0.2", features = ["full"] }
+tokio-util = { version = "0.6.1", features = ["full"] }
+tokio-serde = { version = "0.8.0", features = ["bincode"] }
+uuid = { version = "0.8.2", features = ["serde", "v4"] }
+log = "0.4.13"
+flume = "0.10.1"
+simple_logger = "1.11.0"
+futures = "0.3.12"
+tap = "1.0.0"
+anyhow = "1.0.38"
+
+[dependencies.serde]
+version = "1.0.120"
+features = ["serde_derive"]
+
+
+[[bin]]
+name = "sync_daemon"
+path = "src/server/server_main.rs"
+
+[[bin]]
+name = "sync"
+path = 'src/client/client_main.rs'
